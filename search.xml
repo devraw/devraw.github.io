@@ -1,26 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Android 软重启命令(Root)</title>
-      <link href="/2019/01/11/android-soft-reboot/"/>
-      <url>/2019/01/11/android-soft-reboot/</url>
-      
-        <content type="html"><![CDATA[<h1 id="android-软重启命令"><a href="#android-软重启命令" class="headerlink" title="android 软重启命令"></a>android 软重启命令</h1><p>通过以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setprop ctl.restart surfaceflinger; setprop ctl.restart zygote</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Android </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title><![CDATA[Android 软重启命令(Root)]]></title>
+    <url>%2F2019%2F01%2F11%2Fandroid-soft-reboot%2F</url>
+    <content type="text"><![CDATA[android 软重启命令通过以下命令 1adb shell 1su 1setprop ctl.restart surfaceflinger; setprop ctl.restart zygote]]></content>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
 </search>
