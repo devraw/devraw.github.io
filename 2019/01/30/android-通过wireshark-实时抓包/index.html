@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="windows下android通过tcpdump+wireshark实时抓包环境准备Android 必须已root   安装tcpdump   安装netcat(可通过安装busybox获得nc)   配置adb命令（android sdk环境）  PC 安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）   下载">
+  <meta name="description" content="环境准备Android 必须已root   安装tcpdump   安装netcat(可通过安装busybox获得nc)   配置adb命令（android sdk环境）  PC 安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）   下载nmap，并配置环境变量到安装目录  使用打开cmd1234adb shel">
 <meta name="keywords" content="android,wireshark,tcptump">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android 通过wireshark 实时抓包">
 <meta property="og:url" content="http://yoursite.com/2019/01/30/android-通过wireshark-实时抓包/index.html">
 <meta property="og:site_name" content="DevRaw">
-<meta property="og:description" content="windows下android通过tcpdump+wireshark实时抓包环境准备Android 必须已root   安装tcpdump   安装netcat(可通过安装busybox获得nc)   配置adb命令（android sdk环境）  PC 安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）   下载">
+<meta property="og:description" content="环境准备Android 必须已root   安装tcpdump   安装netcat(可通过安装busybox获得nc)   配置adb命令（android sdk环境）  PC 安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）   下载nmap，并配置环境变量到安装目录  使用打开cmd1234adb shel">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-30T09:27:59.647Z">
+<meta property="og:updated_time" content="2019-01-30T09:30:10.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android 通过wireshark 实时抓包">
-<meta name="twitter:description" content="windows下android通过tcpdump+wireshark实时抓包环境准备Android 必须已root   安装tcpdump   安装netcat(可通过安装busybox获得nc)   配置adb命令（android sdk环境）  PC 安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）   下载">
+<meta name="twitter:description" content="环境准备Android 必须已root   安装tcpdump   安装netcat(可通过安装busybox获得nc)   配置adb命令（android sdk环境）  PC 安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）   下载nmap，并配置环境变量到安装目录  使用打开cmd1234adb shel">
 
 
 
@@ -399,7 +399,7 @@
                 
               
 
-              <time title="创建时间：2019-01-30 16:43:08 / 修改时间：17:27:59" itemprop="dateCreated datePublished" datetime="2019-01-30T16:43:08+08:00">2019-01-30</time>
+              <time title="创建时间：2019-01-30 16:43:08 / 修改时间：17:30:10" itemprop="dateCreated datePublished" datetime="2019-01-30T16:43:08+08:00">2019-01-30</time>
             
 
             
@@ -459,17 +459,17 @@
       
 
       
-        <h1 id="windows下android通过tcpdump-wireshark实时抓包"><a href="#windows下android通过tcpdump-wireshark实时抓包" class="headerlink" title="windows下android通过tcpdump+wireshark实时抓包"></a>windows下android通过tcpdump+wireshark实时抓包</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><ol>
+        <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h2 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h2><ol>
 <li>必须已root  </li>
 <li>安装<a href="https://www.androidtcpdump.com/" target="_blank" rel="noopener">tcpdump</a>  </li>
 <li>安装netcat(可通过安装busybox获得nc)  </li>
 <li>配置adb命令（android sdk环境）</li>
 </ol>
-<h3 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h3><ol>
+<h2 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h2><ol>
 <li>安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）  </li>
 <li>下载<a href="https://nmap.org/download.html" target="_blank" rel="noopener">nmap</a>，并配置环境变量到安装目录</li>
 </ol>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>打开cmd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line">su</span><br><span class="line">chmod 755 /data/local/tmp/tcpdump</span><br><span class="line">/data/local/tmp/tcpdump -i any -s 0 -w - | nc -l -p 6666</span><br></pre></td></tr></table></figure></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>打开cmd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line">su</span><br><span class="line">chmod 755 /data/local/tmp/tcpdump</span><br><span class="line">/data/local/tmp/tcpdump -i any -s 0 -w - | nc -l -p 6666</span><br></pre></td></tr></table></figure></p>
 <p>在pc上新开cmd，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb forward tcp:6666 tcp:6666</span><br><span class="line">ncat 127.0.0.1 6666 | wireshark -k -S -i -</span><br></pre></td></tr></table></figure></p>
 
       
@@ -678,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#windows下android通过tcpdump-wireshark实时抓包"><span class="nav-number">1.</span> <span class="nav-text">windows下android通过tcpdump+wireshark实时抓包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境准备"><span class="nav-number">1.1.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android"><span class="nav-number">1.1.1.</span> <span class="nav-text">Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PC"><span class="nav-number">1.1.2.</span> <span class="nav-text">PC</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境准备"><span class="nav-number">1.</span> <span class="nav-text">环境准备</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android"><span class="nav-number">1.1.</span> <span class="nav-text">Android</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PC"><span class="nav-number">1.2.</span> <span class="nav-text">PC</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li></ol></div>
             
 
           </div>
