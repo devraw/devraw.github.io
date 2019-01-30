@@ -1,21 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title><![CDATA[nginx_add_lua]]></title>
-    <url>%2F2019%2F01%2F21%2Fnginx-add-lua%2F</url>
-    <content type="text"><![CDATA[在已有nginx上集成lua模块查看当前版本 1nginx -v 输出如下1nginx version: nginx/1.12.2 到nginx下载页面下载对应的版本源码, 这里需要下载nginx-1.12.2.tar.gz 1wget http://nginx.org/download/nginx-1.12.2.tar.gz 解压1tar -xzvf nginx-1.12.2.tar.gz 下载luajit并安装，这里下载v2.1-20190115.tar.gz 123456cd /usr/local/srcwget https://github.com/openresty/luajit2/archive/v2.1-20190115.tar.gztar -xzvf v2.1-20190115.tar.gzcd luajit2-2.1-20190115make PREFIX=/usr/local/luajitmake install PREFIX=/usr/local/luajit 2.下载ngx_devel_kit（NDK）模块 ：https://github.com/simpl/ngx_devel_kit/tags，不需要安装123cd /usr/local/srcwget https://github.com/simplresty/ngx_devel_kit/archive/v0.3.1rc1.tar.gztar -xzvf v0.3.1rc1.tar.gz 3.下载最新的lua-nginx-module 模块 ：https://github.com/openresty/lua-nginx-module/tags，不需要安装123cd /usr/local/srcwget https://github.com/openresty/lua-nginx-module/archive/v0.10.14rc3.tar.gztar -xzvf v0.10.14rc3.tar.gz 4.nginx -V查看已经编译的配置笔者的配置如下：12345nginx version: nginx/1.12.2built by gcc 4.4.7 20120313 (Red Hat 4.4.7-18) (GCC)built with OpenSSL 1.0.1e-fips 11 Feb 2013TLS SNI support enabledconfigure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --with-cc-opt=&apos;-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fPIC&apos; --with-ld-opt=&apos;-Wl,-z,relro -Wl,-z,now -pie&apos;]]></content>
-      <tags>
-        <tag>nginx</tag>
-        <tag>lua</tag>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Android 软重启命令(Root)]]></title>
-    <url>%2F2019%2F01%2F11%2Fandroid-soft-reboot%2F</url>
-    <content type="text"><![CDATA[android 软重启命令通过以下命令 1adb shell 1su 1setprop ctl.restart surfaceflinger; setprop ctl.restart zygote]]></content>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
+<search> 
+  
+  
+    
+    <entry>
+      <title>android 通过wireshark 实时抓包</title>
+      <link href="/2019/01/30/android-%E9%80%9A%E8%BF%87wireshark-%E5%AE%9E%E6%97%B6%E6%8A%93%E5%8C%85/"/>
+      <url>/2019/01/30/android-%E9%80%9A%E8%BF%87wireshark-%E5%AE%9E%E6%97%B6%E6%8A%93%E5%8C%85/</url>
+      
+        <content type="html"><![CDATA[<h1 id="windows下android通过tcpdump-wireshark实时抓包"><a href="#windows下android通过tcpdump-wireshark实时抓包" class="headerlink" title="windows下android通过tcpdump+wireshark实时抓包"></a>windows下android通过tcpdump+wireshark实时抓包</h1><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><ol><li>必须已root  </li><li>安装<a href="https://www.androidtcpdump.com/" target="_blank" rel="noopener">tcpdump</a>  </li><li>安装netcat(可通过安装busybox获得nc)  </li><li>配置adb命令（android sdk环境）</li></ol><h3 id="PC"><a href="#PC" class="headerlink" title="PC"></a>PC</h3><ol><li>安装wireshark，并配置环境变量到安装目录（如：在系统变量的path添加 D:\Program Files\Wireshark）  </li><li>下载<a href="https://nmap.org/download.html" target="_blank" rel="noopener">nmap</a>，并配置环境变量到安装目录</li></ol><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>打开cmd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br><span class="line">su</span><br><span class="line">chmod 755 /data/local/tmp/tcpdump</span><br><span class="line">/data/local/tmp/tcpdump -i any -s 0 -w - | nc -l -p 6666</span><br></pre></td></tr></table></figure></p><p>在pc上新开cmd，输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adb forward tcp:6666 tcp:6666</span><br><span class="line">ncat 127.0.0.1 6666 | wireshark -k -S -i -</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> android </tag>
+            
+            <tag> wireshark </tag>
+            
+            <tag> tcptump </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nginx_add_lua</title>
+      <link href="/2019/01/21/nginx-add-lua/"/>
+      <url>/2019/01/21/nginx-add-lua/</url>
+      
+        <content type="html"><![CDATA[<h1 id="在已有nginx上集成lua模块"><a href="#在已有nginx上集成lua模块" class="headerlink" title="在已有nginx上集成lua模块"></a>在已有nginx上集成lua模块</h1><p>查看当前版本</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -v</span><br></pre></td></tr></table></figure><p>输出如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.12.2</span><br></pre></td></tr></table></figure></p><p>到<a href="http://nginx.org/download/" target="_blank" rel="noopener">nginx下载页面</a>下载对应的版本源码, 这里需要下载<a href="http://nginx.org/download/nginx-1.12.2.tar.gz" target="_blank" rel="noopener">nginx-1.12.2.tar.gz</a></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure><p>解压<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure></p><p>下载<a href="https://github.com/openresty/luajit2/releases" target="_blank" rel="noopener">luajit</a>并安装，这里下载<a href="https://github.com/openresty/luajit2/archive/v2.1-20190115.tar.gz" target="_blank" rel="noopener">v2.1-20190115.tar.gz</a></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src</span><br><span class="line">wget https://github.com/openresty/luajit2/archive/v2.1-20190115.tar.gz</span><br><span class="line">tar -xzvf v2.1-20190115.tar.gz</span><br><span class="line">cd luajit2-2.1-20190115</span><br><span class="line">make PREFIX=/usr/local/luajit</span><br><span class="line">make install PREFIX=/usr/local/luajit</span><br></pre></td></tr></table></figure><p>2.下载ngx_devel_kit（NDK）模块 ：<a href="https://github.com/simpl/ngx_devel_kit/tags，不需要安装" target="_blank" rel="noopener">https://github.com/simpl/ngx_devel_kit/tags，不需要安装</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src</span><br><span class="line">wget https://github.com/simplresty/ngx_devel_kit/archive/v0.3.1rc1.tar.gz</span><br><span class="line">tar -xzvf v0.3.1rc1.tar.gz</span><br></pre></td></tr></table></figure></p><p>3.下载最新的lua-nginx-module 模块 ：<a href="https://github.com/openresty/lua-nginx-module/tags，不需要安装" target="_blank" rel="noopener">https://github.com/openresty/lua-nginx-module/tags，不需要安装</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src</span><br><span class="line">wget https://github.com/openresty/lua-nginx-module/archive/v0.10.14rc3.tar.gz</span><br><span class="line">tar -xzvf v0.10.14rc3.tar.gz</span><br></pre></td></tr></table></figure></p><p>4.nginx -V查看已经编译的配置<br>笔者的配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.12.2</span><br><span class="line">built by gcc 4.4.7 20120313 (Red Hat 4.4.7-18) (GCC)</span><br><span class="line">built with OpenSSL 1.0.1e-fips 11 Feb 2013</span><br><span class="line">TLS SNI support enabled</span><br><span class="line">configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --with-cc-opt=&apos;-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fPIC&apos; --with-ld-opt=&apos;-Wl,-z,relro -Wl,-z,now -pie&apos;</span><br></pre></td></tr></table></figure></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> nginx </tag>
+            
+            <tag> lua </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android 软重启命令(Root)</title>
+      <link href="/2019/01/11/android-soft-reboot/"/>
+      <url>/2019/01/11/android-soft-reboot/</url>
+      
+        <content type="html"><![CDATA[<h1 id="android-软重启命令"><a href="#android-软重启命令" class="headerlink" title="android 软重启命令"></a>android 软重启命令</h1><p>通过以下命令</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su</span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setprop ctl.restart surfaceflinger; setprop ctl.restart zygote</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
