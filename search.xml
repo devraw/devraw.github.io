@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[nginx_add_lua]]></title>
+    <url>%2F2019%2F01%2F21%2Fnginx-add-lua%2F</url>
+    <content type="text"><![CDATA[在已有nginx上集成lua模块查看当前版本 1nginx -v 输出如下1nginx version: nginx/1.12.2 到nginx下载页面下载对应的版本源码, 这里需要下载nginx-1.12.2.tar.gz 1wget http://nginx.org/download/nginx-1.12.2.tar.gz 解压1tar -xzvf nginx-1.12.2.tar.gz 下载luajit并安装，这里下载v2.1-20190115.tar.gz 123456cd /usr/local/srcwget https://github.com/openresty/luajit2/archive/v2.1-20190115.tar.gztar -xzvf v2.1-20190115.tar.gzcd luajit2-2.1-20190115make PREFIX=/usr/local/luajitmake install PREFIX=/usr/local/luajit 2.下载ngx_devel_kit（NDK）模块 ：https://github.com/simpl/ngx_devel_kit/tags，不需要安装123cd /usr/local/srcwget https://github.com/simplresty/ngx_devel_kit/archive/v0.3.1rc1.tar.gztar -xzvf v0.3.1rc1.tar.gz 3.下载最新的lua-nginx-module 模块 ：https://github.com/openresty/lua-nginx-module/tags，不需要安装123cd /usr/local/srcwget https://github.com/openresty/lua-nginx-module/archive/v0.10.14rc3.tar.gztar -xzvf v0.10.14rc3.tar.gz 4.nginx -V查看已经编译的配置笔者的配置如下：12345nginx version: nginx/1.12.2built by gcc 4.4.7 20120313 (Red Hat 4.4.7-18) (GCC)built with OpenSSL 1.0.1e-fips 11 Feb 2013TLS SNI support enabledconfigure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --with-cc-opt=&apos;-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fPIC&apos; --with-ld-opt=&apos;-Wl,-z,relro -Wl,-z,now -pie&apos;]]></content>
+      <tags>
+        <tag>nginx</tag>
+        <tag>lua</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android 软重启命令(Root)]]></title>
     <url>%2F2019%2F01%2F11%2Fandroid-soft-reboot%2F</url>
     <content type="text"><![CDATA[android 软重启命令通过以下命令 1adb shell 1su 1setprop ctl.restart surfaceflinger; setprop ctl.restart zygote]]></content>
