@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="DevRaw">
 <meta property="og:description" content="在已有nginx上集成lua模块查看当前版本 1nginx -v 输出如下1nginx version: nginx/1.12.2 到nginx下载页面下载对应的版本源码, 这里需要下载nginx-1.12.2.tar.gz 1wget http://nginx.org/download/nginx-1.12.2.tar.gz 解压1tar -xzvf nginx-1.12.2.tar.gz 下载">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-21T09:09:18.069Z">
+<meta property="og:updated_time" content="2019-03-01T03:33:41.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nginx_add_lua">
 <meta name="twitter:description" content="在已有nginx上集成lua模块查看当前版本 1nginx -v 输出如下1nginx version: nginx/1.12.2 到nginx下载页面下载对应的版本源码, 这里需要下载nginx-1.12.2.tar.gz 1wget http://nginx.org/download/nginx-1.12.2.tar.gz 解压1tar -xzvf nginx-1.12.2.tar.gz 下载">
@@ -399,12 +399,24 @@
                 
               
 
-              <time title="创建时间：2019-01-21 16:26:22 / 修改时间：17:09:18" itemprop="dateCreated datePublished" datetime="2019-01-21T16:26:22+08:00">2019-01-21</time>
+              <time title="创建时间：2019-01-21 16:26:22" itemprop="dateCreated datePublished" datetime="2019-01-21T16:26:22+08:00">2019-01-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-01 11:33:41" itemprop="dateModified" datetime="2019-03-01T11:33:41+08:00">2019-03-01</time>
               
             
           </span>
@@ -470,6 +482,9 @@
 <p>2.下载ngx_devel_kit（NDK）模块 ：<a href="https://github.com/simpl/ngx_devel_kit/tags，不需要安装" target="_blank" rel="noopener">https://github.com/simpl/ngx_devel_kit/tags，不需要安装</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src</span><br><span class="line">wget https://github.com/simplresty/ngx_devel_kit/archive/v0.3.1rc1.tar.gz</span><br><span class="line">tar -xzvf v0.3.1rc1.tar.gz</span><br></pre></td></tr></table></figure></p>
 <p>3.下载最新的lua-nginx-module 模块 ：<a href="https://github.com/openresty/lua-nginx-module/tags，不需要安装" target="_blank" rel="noopener">https://github.com/openresty/lua-nginx-module/tags，不需要安装</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/src</span><br><span class="line">wget https://github.com/openresty/lua-nginx-module/archive/v0.10.14rc3.tar.gz</span><br><span class="line">tar -xzvf v0.10.14rc3.tar.gz</span><br></pre></td></tr></table></figure></p>
 <p>4.nginx -V查看已经编译的配置<br>笔者的配置如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.12.2</span><br><span class="line">built by gcc 4.4.7 20120313 (Red Hat 4.4.7-18) (GCC)</span><br><span class="line">built with OpenSSL 1.0.1e-fips 11 Feb 2013</span><br><span class="line">TLS SNI support enabled</span><br><span class="line">configure arguments: --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --with-cc-opt=&apos;-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fPIC&apos; --with-ld-opt=&apos;-Wl,-z,relro -Wl,-z,now -pie&apos;</span><br></pre></td></tr></table></figure></p>
+<p>5.进入之前安装nginx的解压目录，重新编译安装(在nginx -V得到的配置下，加入ngx_devel_kit-0.2.19和ua-nginx-module-0.10.2的目录)，最终的配置如下  </p>
+<p>设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LUAJIT_LIB=/usr/local/luajit/lib</span><br><span class="line">export LUAJIT_INC=/usr/local/luajit/include/luajit-2.1</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/etc/nginx --sbin-path=/usr/sbin/nginx --modules-path=/usr/lib64/nginx/modules --conf-path=/etc/nginx/nginx.conf --error-log-path=/var/log/nginx/error.log --http-log-path=/var/log/nginx/access.log --pid-path=/var/run/nginx.pid --lock-path=/var/run/nginx.lock --http-client-body-temp-path=/var/cache/nginx/client_temp --http-proxy-temp-path=/var/cache/nginx/proxy_temp --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp --http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp --http-scgi-temp-path=/var/cache/nginx/scgi_temp --user=nginx --group=nginx --with-compat --with-file-aio --with-threads --with-http_addition_module --with-http_auth_request_module --with-http_dav_module --with-http_flv_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_mp4_module --with-http_random_index_module --with-http_realip_module --with-http_secure_link_module --with-http_slice_module --with-http_ssl_module --with-http_stub_status_module --with-http_sub_module --with-http_v2_module --with-mail --with-mail_ssl_module --with-stream --with-stream_realip_module --with-stream_ssl_module --with-stream_ssl_preread_module --with-cc-opt=&apos;-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -m64 -mtune=generic -fPIC&apos; --with-ld-opt=&apos;-Wl,-z,relro -Wl,-z,now -pie -Wl,-rpath,/usr/local/luajit/lib/&apos;  --add-module=/mnt/e/Desktop/nginx-1.12.2/ngx_devel_kit-0.3.1rc1/ --add-module=/mnt/e/Desktop/nginx-1.12.2/lua-nginx-module-0.10.14rc3/</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1224,15 +1239,15 @@
     
 
     $(function() {
-      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'OyH5o462CMNlUSLyLxMi2H51-gzGzoHsz')
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + 'GLrrPydk494m0mdPbWlCpWyz-MdYXbMMI')
         .done(function({ api_server }) {
           var Counter = function(method, url, data) {
             return $.ajax({
               method: method,
               url: 'https://' + api_server + '/1.1' + url,
               headers: {
-                'X-LC-Id': 'OyH5o462CMNlUSLyLxMi2H51-gzGzoHsz',
-                'X-LC-Key': 'kdt9rTRuELDJx8Mua6Kir9TI',
+                'X-LC-Id': 'GLrrPydk494m0mdPbWlCpWyz-MdYXbMMI',
+                'X-LC-Key': 'gBfVAfrXL0vjb7PhhsC6Tp3X',
                 'Content-Type': 'application/json',
               },
               data: data
